@@ -57,7 +57,11 @@ BALANCE_PENALTY_WEIGHT = 0.5         # Tradeoff weight between balance and magni
 
 ### Inputs
 
-The script is designed to work with Supercam spectral data and requires candidate calibration files and radiance data in text or CSV format. It is intended to be run from the command line with those files/directories as input. The expected directory structure for input data is as follows:
+The script is designed to work with Supercam spectral data and requires candidate calibration files and radiance data in text or CSV format. It is intended to be run from the command line with those files/directories as input.
+
+Input calibration target data should be provided as a directory containing text files, with one file for each candidate calibration target. Each file must have two space-delimited columns: the first column for wavelength and the second for radiance.
+
+The input radiance data to be calibrated is in similar format, but has .csv extension and should live in a directory called 'RAD'. The expected directory structure for input radiance data is as follows:
 
     DatasetDirectory/
     ├── RAD/
@@ -70,10 +74,7 @@ The script is designed to work with Supercam spectral data and requires candidat
 
 > Note that the .fits files are only needed when COSINE_CORRECTION = True. The headers will be read to extract the required values for that correction. The fits files are expected to be named the same as the radiance files besides the .fits extension replacing '_RAD.csv'.
 
-The code will work if you supply a single radiance file, a path to a RAD/ directory, or a path
-to a directory containing one or more RAD directories at any sublevel, meaning you can process
-multiple datasets at once. However, the calibration target files should be in a single directory
-outside of these datasets.
+The code will work if you supply a single radiance file, a path to a RAD/ directory, or a path to a directory containing one or more RAD directories at any sublevel, meaning you can process multiple datasets at once. However, the calibration target files should be in a single directory.
 
 ### Running the Calibration Script
 Run the calibration script from the command line:
@@ -91,9 +92,9 @@ Optional: specify an output directory with `--out`. If not specified, a subdirec
 
 #### Examples
 ```
-python calibrate.py VIS_recalibration_2025/Sol184_VIS/radiance_text_files_1_to_50/ VIS_recalibration_2025/Examples/Sol181_Manior/RAD/SCAM_0181_0683003156_359_CP3_scam01181_Manior_______________01P11_RAD.csv
-python calibrate.py VIS_recalibration_2025/Sol184_VIS/radiance_text_files_1_to_50/ VIS_recalibration_2025/Examples/Sol181_Manior/RAD/
-python calibrate.py VIS_recalibration_2025/Sol184_VIS/radiance_text_files_1_to_50/ VIS_recalibration_2025/Examples/
+python calibrate.py sample_data/Sol184_VIS/radiance_text_files_1_to_50/ sample_data/Sol207_Garde_abrasion/RAD/SCAM_0207_0685310942_124_CP3_scam01207_Garde_207_scam_______01P11_RAD.csv
+python calibrate.py sample_data/Sol184_VIS/radiance_text_files_1_to_50/ sample_data/Sol207_Garde_abrasion/RAD/
+python calibrate.py sample_data/Sol184_VIS/radiance_text_files_1_to_50/ sample_data/
 ```
 Outputs will be saved to a `{OUT_DIR_NAME}/` subdirectory at the appropriate level for each dataset.
 
