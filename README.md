@@ -1,4 +1,4 @@
-# SuperCam VIS Calibration Target Selection
+# SuperCam-VIS-Calibration
 
 This repository provides code to select the best calibration target for SuperCam VIS spectral data and apply the calibration to radiance data, saving the result to file.
 
@@ -10,8 +10,8 @@ This repository provides code to select the best calibration target for SuperCam
 
 ### 1. Clone the Repository
 ```
-git clone https://gitlab.jhuapl.edu/mars2020/supercam/vis-cal-target-select.git
-cd vis-cal-target-select
+git clone https://github.com/tinsmcl1/SuperCam-VIS-Calibration.git
+cd SuperCam-VIS-Calibration
 ```
 
 ### 2. Create a Conda Environment
@@ -19,7 +19,7 @@ It is recommended to use a conda environment to manage dependencies and avoid co
 
 ```
 conda create -n supercam-cal python=3.12
-conda activate supercam-cal
+conda activate scam-vis-cal
 ```
 
 ### 3. Install Required Packages
@@ -158,5 +158,4 @@ This process ensures that the resulting reflectance data are accurately calibrat
 
 ## Contact
 For questions, contact Calley.Tinsman@jhuapl.edu or Jeffrey.R.Johnson@jhuapl.edu
-
-https://gitlab.jhuapl.edu/mars2020/supercam/vis-cal-target-select
+https://github.com/tinsmcl1/SuperCam-VIS-Calibration
