@@ -467,4 +467,4 @@ if __name__ == "__main__":
         out_filename = filename.stem[:-3] + f"R{best_target:02d}.csv"
         out_path = out_dir / out_filename
         print(f"[INFO] Saving reflectance data to: {out_path}")
-        np.savetxt(out_path, np.column_stack((wl, refl)), fmt="%.29f", delimiter="  ")
+        np.savetxt(out_path, np.column_stack((wl, refl)), fmt="%.29f", delimiter=" ")
